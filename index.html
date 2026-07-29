@@ -25,7 +25,7 @@
     body{
       margin:0;
       color:var(--text);
-      background:#fff;
+      background:#f4f6fa;
       font-family:var(--sans);
       line-height:1.62;
       -webkit-font-smoothing:antialiased;
@@ -35,8 +35,10 @@
     img{display:block;max-width:100%}
 
     .container{
-      width:min(1180px, calc(100% - 44px));
-      margin-inline:auto;
+      width:100%;
+      max-width:1280px;
+      margin:0 auto;
+      padding:0 32px;
     }
 
     .site-header{
@@ -78,17 +80,24 @@
     nav a:hover{opacity:.65}
 
     .hero{
-      display:grid;
-      grid-template-columns:minmax(0, 1fr) minmax(0, 1.1fr);
-      min-height:585px;
       border-bottom:1px solid #edf1f7;
       background:
         radial-gradient(circle at 88% 18%, rgba(216,232,249,.38), transparent 34%),
         #fff;
     }
 
+    .hero-inner{
+      width:100%;
+      max-width:1280px;
+      margin:0 auto;
+      padding:0 32px;
+      display:grid;
+      grid-template-columns:minmax(380px, 500px) minmax(0, 1fr);
+      min-height:650px;
+    }
+
     .hero-photo{
-      min-height:585px;
+      min-height:650px;
       overflow:hidden;
       background:#edf2f6;
     }
@@ -104,7 +113,8 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
-      padding:62px clamp(42px, 7vw, 104px);
+      max-width:720px;
+      padding:62px 48px 62px 72px;
     }
 
     h1,h2,h3{
@@ -177,7 +187,10 @@
       box-shadow:0 10px 24px rgba(5,38,91,.12)
     }
 
-    main{padding:34px 0 0}
+    main{
+      padding:34px 32px 0;
+      background:#fff;
+    }
 
     .split{
       display:grid;
@@ -348,9 +361,16 @@
 
     @media (max-width:900px){
       nav{display:none}
-      .hero{grid-template-columns:1fr;min-height:auto}
+      .hero-inner{
+        grid-template-columns:1fr;
+        min-height:auto;
+        padding:0;
+      }
       .hero-photo{min-height:460px}
-      .hero-copy{padding:48px 28px 54px}
+      .hero-copy{
+        max-width:none;
+        padding:48px 28px 54px;
+      }
       .split,.bottom-grid{grid-template-columns:1fr}
       .container{width:min(100% - 28px, 760px)}
       .timeline-row{grid-template-columns:1fr;gap:2px}
@@ -393,6 +413,7 @@
 	</div>
 </header>
 <section id="top" class="hero">
+	<div class="hero-inner">
 	<div class="hero-photo">
 		<img src="konrad-olesiewicz.png" alt="Portret Konrada Olesiewicza" />
 	</div>
@@ -446,7 +467,9 @@
 			</a>
 		</div>
 	</div>
+	</div>
 </section>
+<main class="container">
 <div class="split">
 	<section id="o-mnie" class="section">
 		<h2>
@@ -597,6 +620,7 @@
 		</ul>
 	</section>
 </div>
+</main>
 <footer>
 	<div class="container footer-inner">
 		<div class="footer-links">
