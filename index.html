@@ -253,7 +253,47 @@
       transform:translateY(-1px);
       box-shadow:0 10px 24px rgba(11,45,74,.13);
     }
+.promise{
+    padding:72px 60px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+    background:#fff;
+}
 
+.promise h2{
+    margin-bottom:22px;
+    font-size:1.15rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--navy);
+}
+
+.promise blockquote{
+    max-width:920px;
+    margin:0 auto;
+    font-size:clamp(1.45rem,2vw,2rem);
+    line-height:1.65;
+    font-weight:300;
+    color:var(--navy-dark);
+    letter-spacing:-0.02em;
+}
+
+.promise strong{
+    font-weight:700;
+}
+
+@media (max-width:900px){
+
+    .promise{
+        padding:48px 28px;
+    }
+
+    .promise blockquote{
+        font-size:1.35rem;
+    }
+
+}
     main{
       padding:34px 22px 0;
       background:#fff;
@@ -586,7 +626,18 @@
   </section>
 
   <main class="container">
+<section class="promise">
 
+    <h2>Moja obietnica</h2>
+
+    <blockquote>
+        „Nie mogę obiecać, dokąd zaprowadzi Cię Twoja droga.
+        Mogę obiecać, że spotkam Cię na niej z pełnym
+        zaangażowaniem i wykorzystam całą swoją wiedzę oraz doświadczenie,
+        aby jak najlepiej Ci towarzyszyć.”
+    </blockquote>
+
+</section>
     <div class="split">
       <section id="o-mnie" class="section">
         <h2>O mnie</h2>
