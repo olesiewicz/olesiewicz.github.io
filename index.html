@@ -34,6 +34,12 @@
       scroll-behavior:smooth;
     }
 
+    #o-mnie p,
+#kwalifikacje p{
+    text-align: justify;
+    hyphens: auto;
+}
+    
     body{
       margin:0;
       color:var(--text);
@@ -62,7 +68,7 @@
       box-shadow:0 8px 40px rgba(0,0,0,.05);
       overflow:hidden;
     }
-
+    
     .container{
       width:100%;
       max-width:var(--content-max);
@@ -216,7 +222,74 @@
       line-height:1.72;
       text-align:justify;
     }
+.contact-group{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
 
+.contact-item{
+    display:flex;
+    align-items:flex-start;
+    gap:16px;
+}
+
+.contact-item .icon{
+    width:34px;
+    height:34px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--line);
+    border-radius:50%;
+
+    color:var(--navy);
+
+    font-weight:700;
+    flex-shrink:0;
+}
+
+.contact-item strong{
+    display:block;
+    margin-bottom:3px;
+    font-size:.95rem;
+    color:var(--muted);
+    font-weight:600;
+}
+
+.contact-item a,
+.contact-item span{
+    font-size:1.02rem;
+    text-decoration:none;
+    color:var(--navy-dark);
+}
+
+.contact-divider{
+    margin:30px 0;
+    border:none;
+    border-top:1px solid var(--line);
+}
+
+.availability strong{
+    display:block;
+    margin-bottom:14px;
+    color:var(--navy-dark);
+    font-size:1rem;
+}
+
+.availability ul{
+    margin:0;
+    padding-left:18px;
+}
+
+.availability li{
+    margin-bottom:8px;
+    line-height:1.6;
+}
+
+    
     .notice{
       max-width:690px;
       margin:8px 0 0;
@@ -763,18 +836,67 @@
 </section>
 
       <section id="kontakt" class="panel">
-        <h3>Kontakt</h3>
-        <div class="rule"></div>
 
-        <ul class="contact-list">
-          <li>Konrad Olesiewicz</li>
-          <li>Warszawa</li>
-          <li>Spotkania online</li>
-          <li><a href="tel:+48501311405">+48 501 311 405</a></li>
-          <li><a href="mailto:konrad@konradolesiewicz.pl">konrad@konradolesiewicz.pl</a></li>
-          <li><a href="https://linkedin.com/in/konradolesiewicz" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    <h3>Kontakt</h3>
+    <div class="rule"></div>
+
+    <div class="contact-group">
+
+        <div class="contact-item">
+            <span class="icon">📍</span>
+            <div>
+                <strong>Lokalizacja</strong>
+                <span>Warszawa • Spotkania online</span>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <span class="icon">☎</span>
+            <div>
+                <strong>Telefon</strong>
+                <a href="tel:+48501311405">+48 501 311 405</a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <span class="icon">✉</span>
+            <div>
+                <strong>E-mail</strong>
+                <a href="mailto:konrad@konradolesiewicz.pl">
+                    konrad@konradolesiewicz.pl
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <span class="icon">in</span>
+            <div>
+                <strong>LinkedIn</strong>
+                <a href="https://linkedin.com/in/konradolesiewicz"
+                   target="_blank">
+                    linkedin.com/in/konradolesiewicz
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="contact-divider">
+
+    <div class="availability">
+
+        <strong>Dostępność</strong>
+
+        <ul>
+            <li>Osoby dorosłe (18+)</li>
+            <li>Spotkania indywidualne</li>
+            <li>Model Internal Family Systems (IFS)</li>
+            <li>Regularna superwizja</li>
         </ul>
-      </section>
+
+    </div>
+
+</section>
 
     </div>
   </main>
