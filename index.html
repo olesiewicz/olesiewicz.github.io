@@ -8,37 +8,50 @@
 
   <style>
     :root{
-      --navy:#06275f;
-      --navy-dark:#001a46;
-      --text:#183158;
-      --muted:#53647f;
-      --line:#dbe5f3;
-      --panel:#f4f8fd;
+      --navy:#0b2d4a;
+      --navy-dark:#06223a;
+      --text:#1d2f42;
+      --muted:#627184;
+      --line:#d9e2eb;
+      --panel:#f6f9fc;
       --white:#ffffff;
-      --page-max:1320px;
-      --content-max:1180px;
-      --serif:Georgia,"Times New Roman",serif;
-      --sans:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+
+      --page-max:1380px;
+      --content-max:1280px;
+
+      --font:"Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
-    *{box-sizing:border-box}
+    *{
+      box-sizing:border-box;
+    }
 
-    html{scroll-behavior:smooth}
+    html{
+      scroll-behavior:smooth;
+    }
 
     body{
       margin:0;
       color:var(--text);
-      background:#f4f6fa;
-      font-family:var(--sans);
-      line-height:1.62;
+      background:#f3f5f8;
+      font-family:var(--font);
+      font-weight:400;
+      line-height:1.58;
       -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
 
-    a{color:inherit}
-    img{display:block;max-width:100%}
+    a{
+      color:inherit;
+    }
+
+    img{
+      display:block;
+      max-width:100%;
+    }
 
     .page{
-      width:min(92%, var(--page-max));
+      width:min(96%, var(--page-max));
       margin:0 auto;
       background:var(--white);
       box-shadow:0 8px 40px rgba(0,0,0,.05);
@@ -49,20 +62,20 @@
       width:100%;
       max-width:var(--content-max);
       margin:0 auto;
-      padding:0 32px;
+      padding:0 22px;
     }
 
     .site-header{
       position:sticky;
       top:0;
       z-index:20;
-      background:rgba(255,255,255,.95);
+      background:rgba(255,255,255,.96);
       backdrop-filter:blur(12px);
-      border-bottom:1px solid #edf1f7;
+      border-bottom:1px solid #edf1f5;
     }
 
     .header-inner{
-      min-height:70px;
+      min-height:68px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -70,41 +83,46 @@
     }
 
     .brand{
-      font-family:var(--serif);
-      font-size:1.45rem;
       color:var(--navy-dark);
       text-decoration:none;
       white-space:nowrap;
+      font-size:1.35rem;
+      font-weight:700;
+      letter-spacing:-0.02em;
     }
 
     nav{
       display:flex;
-      gap:30px;
+      gap:28px;
       font-size:.93rem;
+      font-weight:500;
     }
 
     nav a{
       color:var(--navy-dark);
       text-decoration:none;
+      transition:opacity .2s ease;
     }
 
-    nav a:hover{opacity:.65}
+    nav a:hover{
+      opacity:.62;
+    }
 
     .hero{
-      border-bottom:1px solid #edf1f7;
+      border-bottom:1px solid #edf1f5;
       background:
-        radial-gradient(circle at 88% 18%, rgba(216,232,249,.38), transparent 34%),
+        radial-gradient(circle at 89% 16%, rgba(210,225,239,.42), transparent 34%),
         #fff;
     }
 
     .hero-inner{
       display:grid;
-      grid-template-columns:minmax(360px, 500px) minmax(0, 1fr);
-      min-height:650px;
+      grid-template-columns:minmax(300px, 400px) minmax(0, 1fr);
+      min-height:590px;
     }
 
     .hero-photo{
-      min-height:650px;
+      min-height:590px;
       overflow:hidden;
       background:#edf2f6;
     }
@@ -120,69 +138,80 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
-      padding:58px 52px 58px 64px;
+      padding:52px 54px 52px 64px;
     }
 
     h1,h2,h3{
       margin:0;
       color:var(--navy-dark);
-      font-family:var(--serif);
-      font-weight:500;
+      font-family:var(--font);
       line-height:1.08;
+      letter-spacing:-0.035em;
     }
 
     h1{
-      font-size:clamp(3rem,4vw,4.15rem);
-      line-height:1.02;
+      font-size:clamp(2.9rem,4vw,4.05rem);
+      font-weight:700;
     }
 
-    h2{font-size:clamp(2rem,3vw,2.9rem)}
-    h3{font-size:clamp(1.45rem,2vw,2rem)}
+    h2{
+      font-size:clamp(2rem,3vw,2.85rem);
+      font-weight:700;
+    }
+
+    h3{
+      font-size:clamp(1.45rem,2vw,1.95rem);
+      font-weight:700;
+    }
 
     .lead{
       margin:18px 0 0;
       color:var(--navy);
-      font-family:var(--serif);
-      font-size:clamp(1.55rem,2.15vw,2.25rem);
+      font-size:clamp(1.45rem,2.15vw,2.1rem);
       line-height:1.22;
-      font-weight:600;
+      font-weight:300;
+      letter-spacing:-0.025em;
     }
 
     .quote{
-      margin:28px auto 26px;
-      max-width:650px;
+      max-width:680px;
+      margin:27px auto 24px;
       text-align:center;
-      font-size:1.12rem;
+      font-size:1.08rem;
+      font-weight:300;
       font-style:italic;
       line-height:1.65;
+      color:#27435e;
     }
 
     .quote::before,
     .quote::after{
       content:"";
       display:block;
-      width:110px;
+      width:108px;
       height:1px;
-      margin:18px auto;
+      margin:16px auto;
       background:var(--navy);
+      opacity:.75;
     }
 
     .hero-copy > p:not(.lead):not(.quote):not(.notice){
-      max-width:650px;
-      margin:0 0 18px;
-      font-size:1.05rem;
+      max-width:690px;
+      margin:0 0 16px;
+      font-size:1.02rem;
       text-align:justify;
     }
 
     .notice{
-      max-width:650px;
+      max-width:690px;
       margin:8px 0 0;
-      text-align:justify;
+      font-size:.98rem;
+      font-weight:300;
       font-style:italic;
+      line-height:1.7;
+      text-align:justify;
       text-decoration:underline;
       text-underline-offset:3px;
-      font-size:1rem;
-      line-height:1.7;
     }
 
     .actions{
@@ -205,7 +234,7 @@
       background:#fff;
       color:var(--navy);
       text-decoration:none;
-      font-weight:650;
+      font-weight:600;
       transition:.2s ease;
     }
 
@@ -216,39 +245,41 @@
 
     .button:hover{
       transform:translateY(-1px);
-      box-shadow:0 10px 24px rgba(5,38,91,.12);
+      box-shadow:0 10px 24px rgba(11,45,74,.13);
     }
 
     main{
-      padding:34px 32px 0;
+      padding:34px 22px 0;
       background:#fff;
     }
 
     .split{
       display:grid;
       grid-template-columns:1.05fr .95fr;
-      gap:38px;
+      gap:32px;
       align-items:stretch;
-      margin-bottom:38px;
+      margin-bottom:34px;
     }
 
     .section{
-      padding:18px 10px 12px;
+      padding:18px 8px 12px;
     }
 
-    .section p{margin:0 0 18px}
+    .section p{
+      margin:0 0 18px;
+    }
 
     .panel{
-      padding:34px 38px;
+      padding:32px 34px;
       border:1px solid var(--line);
       background:linear-gradient(135deg,#fbfdff,var(--panel));
     }
 
     .rule{
-      width:54px;
+      width:52px;
       height:2px;
+      margin:17px 0 23px;
       background:var(--navy);
-      margin:18px 0 24px;
     }
 
     .check-list,
@@ -261,9 +292,9 @@
     .check-list li,
     .contact-list li{
       position:relative;
-      padding-left:38px;
-      margin:12px 0;
       min-height:28px;
+      margin:11px 0;
+      padding-left:38px;
       display:flex;
       align-items:center;
     }
@@ -281,13 +312,13 @@
       background:var(--navy);
       color:#fff;
       font-size:.72rem;
-      font-weight:800;
+      font-weight:700;
     }
 
     .timeline{
-      margin:0 0 38px;
+      margin:0 0 34px;
+      padding:29px 34px 27px;
       border:1px solid var(--line);
-      padding:30px 36px 28px;
     }
 
     .timeline-row{
@@ -320,26 +351,31 @@
       background:#1760bd;
     }
 
-    .timeline-row:last-child::after{display:none}
+    .timeline-row:last-child::after{
+      display:none;
+    }
 
     .timeline-date{
-      font-weight:750;
       color:var(--navy-dark);
+      font-weight:700;
     }
 
     .bottom-grid{
       display:grid;
       grid-template-columns:1.25fr .75fr;
-      gap:24px;
-      margin-bottom:34px;
+      gap:22px;
+      margin-bottom:32px;
     }
 
-    .qualification{margin-bottom:22px}
+    .qualification{
+      margin-bottom:22px;
+    }
 
     .qualification strong{
       display:block;
       margin-bottom:5px;
       color:var(--navy-dark);
+      font-weight:700;
     }
 
     .contact-list li::before{
@@ -370,12 +406,12 @@
 
     footer{
       margin-top:12px;
-      background:linear-gradient(90deg,var(--navy-dark),var(--navy));
       color:#fff;
+      background:linear-gradient(90deg,var(--navy-dark),var(--navy));
     }
 
     .footer-inner{
-      min-height:72px;
+      min-height:70px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -389,30 +425,46 @@
       flex-wrap:wrap;
     }
 
-    .footer-links a{text-decoration:none}
+    .footer-links a{
+      text-decoration:none;
+    }
 
     @media (max-width:1100px){
-      .page{width:96%}
-      .hero-inner{
-        grid-template-columns:minmax(320px,420px) minmax(0,1fr);
+      .page{
+        width:98%;
       }
-      .hero-copy{padding:48px 36px}
+
+      .hero-inner{
+        grid-template-columns:minmax(280px, 350px) minmax(0,1fr);
+      }
+
+      .hero-copy{
+        padding:46px 34px 46px 42px;
+      }
     }
 
     @media (max-width:900px){
-      .page{width:100%;box-shadow:none}
-      nav{display:none}
+      .page{
+        width:100%;
+        box-shadow:none;
+      }
+
+      nav{
+        display:none;
+      }
 
       .hero-inner{
         grid-template-columns:1fr;
         min-height:auto;
       }
 
-      .hero-photo{min-height:460px}
+      .hero-photo{
+        min-height:430px;
+      }
 
       .hero-copy{
         max-width:none;
-        padding:48px 28px 54px;
+        padding:44px 26px 50px;
       }
 
       .split,
@@ -421,27 +473,50 @@
       }
 
       .container{
-        max-width:760px;
-        padding:0 22px;
+        max-width:780px;
+        padding:0 18px;
       }
 
-      main{padding:28px 0 0}
+      main{
+        padding:28px 0 0;
+      }
 
       .timeline-row{
         grid-template-columns:1fr;
         gap:2px;
       }
 
-      .timeline-date{margin-bottom:4px}
+      .timeline-date{
+        margin-bottom:4px;
+      }
     }
 
     @media (max-width:560px){
-      .header-inner{min-height:60px}
-      .brand{font-size:1.22rem}
-      .hero-photo{min-height:390px}
-      .panel,.timeline{padding:26px 22px}
-      .actions{display:grid}
-      .button{width:100%}
+      .header-inner{
+        min-height:60px;
+      }
+
+      .brand{
+        font-size:1.18rem;
+      }
+
+      .hero-photo{
+        min-height:370px;
+      }
+
+      .panel,
+      .timeline{
+        padding:24px 20px;
+      }
+
+      .actions{
+        display:grid;
+      }
+
+      .button{
+        width:100%;
+      }
+
       .footer-inner{
         padding:18px 0;
         align-items:flex-start;
@@ -457,6 +532,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top">Konrad Olesiewicz</a>
+
       <nav aria-label="Główna nawigacja">
         <a href="#o-mnie">O mnie</a>
         <a href="#doswiadczenie">Doświadczenie i kwalifikacje</a>
@@ -507,11 +583,17 @@
         <h2>O mnie</h2>
         <div class="rule"></div>
 
-        <p>Po kilkunastu latach pracy jako przedsiębiorca i lider organizacji świadomie zdecydowałem się związać swoją dalszą karierę z obszarem zdrowia psychicznego.</p>
+        <p>
+          Po kilkunastu latach pracy jako przedsiębiorca i lider organizacji świadomie zdecydowałem się związać swoją dalszą karierę z obszarem zdrowia psychicznego.
+        </p>
 
-        <p>Od 2015 roku prowadzę prywatną praktykę wspierania rozwoju osób dorosłych, którą od 2021 roku rozwijam w oparciu o model Internal Family Systems (IFS).</p>
+        <p>
+          Od 2015 roku prowadzę prywatną praktykę wspierania rozwoju osób dorosłych, którą od 2021 roku rozwijam w oparciu o model Internal Family Systems (IFS).
+        </p>
 
-        <p>Kompetencje kliniczne rozwijam poprzez całościowe szkolenie psychoterapeutyczne, regularną superwizję, proces własny oraz praktykę. Moim celem jest połączenie pracy w publicznym systemie ochrony zdrowia z praktyką prywatną oraz dalsza specjalizacja w psychoterapii dzieci i młodzieży.</p>
+        <p>
+          Kompetencje kliniczne rozwijam poprzez całościowe szkolenie psychoterapeutyczne, regularną superwizję, proces własny oraz praktykę. Moim celem jest połączenie pracy w publicznym systemie ochrony zdrowia z praktyką prywatną oraz dalsza specjalizacja w psychoterapii dzieci i młodzieży.
+        </p>
       </section>
 
       <section id="z-kim-pracuje" class="panel">
