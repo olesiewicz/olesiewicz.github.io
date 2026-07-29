@@ -193,6 +193,26 @@
       letter-spacing:-0.025em;
     }
 
+    .promise blockquote{
+    max-width:850px;
+    margin:0 auto;
+    text-align:center;
+
+    font-size:1.5rem;
+    line-height:1.8;
+    font-weight:400;
+    color:var(--navy-dark);
+    }  
+
+    .promise blockquote::before{
+    content:"“";
+    font-size:4rem;
+    color:#c8d2dc;
+    display:block;
+    line-height:1;
+    margin-bottom:12px;
+}
+    
     .quote{
       max-width:680px;
       margin:27px auto 24px;
@@ -336,10 +356,11 @@
       box-shadow:0 10px 24px rgba(11,45,74,.13);
     }
 .promise{
-    padding:72px 60px;
-    text-align:center;
-    border-bottom:1px solid var(--line);
-    background:#fff;
+    background:#f7f8fa;
+    border:1px solid #e8edf2;
+    border-radius:18px;
+    padding:56px 64px;
+    margin:90px 0;
 }
 
 .promise h2{
