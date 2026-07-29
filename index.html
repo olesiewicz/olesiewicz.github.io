@@ -1,86 +1,515 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Konrad Olesiewicz — Certyfikowany Praktyk Internal Family Systems (IFS).">
+  <title>Konrad Olesiewicz — IFS</title>
 
-    <title>Konrad Olesiewicz</title>
+  <style>
+    :root{
+      --navy:#06275f;
+      --navy-dark:#001a46;
+      --text:#183158;
+      --muted:#53647f;
+      --line:#dbe5f3;
+      --panel:#f4f8fd;
+      --white:#ffffff;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:#fff;
+      font-family:var(--sans);
+      line-height:1.62;
+      -webkit-font-smoothing:antialiased;
+    }
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            font-family: Arial, sans-serif;
-            background: #f2f0eb;
-            color: #252525;
-        }
+    a{color:inherit}
+    img{display:block;max-width:100%}
 
-        main {
-            width: 100%;
-            max-width: 760px;
-            padding: 60px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-        }
+    .container{
+      width:min(1180px, calc(100% - 44px));
+      margin-inline:auto;
+    }
 
-        h1 {
-            margin: 0 0 20px;
-            font-size: 48px;
-            line-height: 1.05;
-        }
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid #edf1f7;
+    }
 
-        p {
-            margin: 0 0 30px;
-            font-size: 20px;
-            line-height: 1.6;
-            color: #555;
-        }
+    .header-inner{
+      min-height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+    }
 
-        a {
-            display: inline-block;
-            padding: 14px 24px;
-            color: white;
-            background: #252525;
-            border-radius: 8px;
-            text-decoration: none;
-        }
+    .brand{
+      font-family:var(--serif);
+      font-size:1.45rem;
+      color:var(--navy-dark);
+      text-decoration:none;
+      white-space:nowrap;
+    }
 
-        @media (max-width: 600px) {
-            main {
-                padding: 35px 25px;
-            }
+    nav{
+      display:flex;
+      gap:30px;
+      font-size:.93rem;
+    }
 
-            h1 {
-                font-size: 36px;
-            }
+    nav a{
+      text-decoration:none;
+      color:var(--navy-dark);
+    }
 
-            p {
-                font-size: 18px;
-            }
-        }
-    </style>
+    nav a:hover{opacity:.65}
+
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) minmax(0, 1.1fr);
+      min-height:585px;
+      border-bottom:1px solid #edf1f7;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(216,232,249,.38), transparent 34%),
+        #fff;
+    }
+
+    .hero-photo{
+      min-height:585px;
+      overflow:hidden;
+      background:#edf2f6;
+    }
+
+    .hero-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center 35%;
+    }
+
+    .hero-copy{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:62px clamp(42px, 7vw, 104px);
+    }
+
+    h1,h2,h3{
+      margin:0;
+      color:var(--navy-dark);
+      font-family:var(--serif);
+      font-weight:500;
+      line-height:1.08;
+    }
+
+    h1{font-size:clamp(3.2rem, 6vw, 5.25rem)}
+    h2{font-size:clamp(2rem, 3.3vw, 3rem)}
+    h3{font-size:clamp(1.45rem, 2.2vw, 2rem)}
+
+    .lead{
+      margin:12px 0 0;
+      color:var(--navy);
+      font-family:var(--serif);
+      font-size:clamp(1.35rem, 2.2vw, 2rem);
+      line-height:1.28;
+    }
+
+    .rule{
+      width:54px;
+      height:2px;
+      background:var(--navy);
+      margin:24px 0 26px;
+    }
+
+    .hero-copy p{
+      max-width:650px;
+      margin:0 0 16px;
+      font-size:1.05rem;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      margin-top:14px;
+    }
+
+    .button{
+      min-width:170px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 24px;
+      border:1px solid var(--navy);
+      border-radius:3px;
+      background:#fff;
+      color:var(--navy);
+      text-decoration:none;
+      font-weight:650;
+      transition:.2s ease;
+    }
+
+    .button.primary{
+      background:linear-gradient(90deg, var(--navy-dark), var(--navy));
+      color:#fff;
+    }
+
+    .button:hover{
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(5,38,91,.12)
+    }
+
+    main{padding:34px 0 0}
+
+    .split{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:38px;
+      align-items:stretch;
+      margin-bottom:38px;
+    }
+
+    .section{
+      padding:18px 10px 12px;
+    }
+
+    .section p{margin:0 0 18px}
+
+    .panel{
+      padding:34px 38px;
+      border:1px solid var(--line);
+      background:linear-gradient(135deg, #fbfdff, var(--panel));
+    }
+
+    .panel h3 + .rule,
+    .section h2 + .rule{
+      margin-top:15px;
+      margin-bottom:24px;
+    }
+
+    .check-list,
+    .plain-list,
+    .contact-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .check-list li,
+    .contact-list li{
+      position:relative;
+      padding-left:30px;
+      margin:10px 0;
+    }
+
+    .check-list li::before{
+      content:"✓";
+      position:absolute;
+      left:0;
+      top:0;
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--navy);
+      color:white;
+      font-size:.72rem;
+      font-weight:800;
+    }
+
+    .timeline{
+      margin:0 0 38px;
+      border:1px solid var(--line);
+      padding:30px 36px 28px;
+    }
+
+    .timeline-row{
+      display:grid;
+      grid-template-columns:145px 1fr;
+      gap:24px;
+      position:relative;
+      padding:10px 0 10px 24px;
+    }
+
+    .timeline-row::before{
+      content:"";
+      position:absolute;
+      left:4px;
+      top:18px;
+      width:9px;
+      height:9px;
+      border:1.5px solid #1760bd;
+      border-radius:50%;
+      background:#fff;
+    }
+
+    .timeline-row::after{
+      content:"";
+      position:absolute;
+      left:8px;
+      top:28px;
+      bottom:-12px;
+      width:1px;
+      background:#1760bd;
+    }
+
+    .timeline-row:last-child::after{display:none}
+    .timeline-date{font-weight:750;color:var(--navy-dark)}
+
+    .bottom-grid{
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:24px;
+      margin-bottom:34px;
+    }
+
+    .qualification{margin-bottom:22px}
+
+    .qualification strong{
+      display:block;
+      margin-bottom:5px;
+      color:var(--navy-dark);
+    }
+
+    .plain-list{
+      margin:10px 0 22px 20px;
+      list-style:disc;
+    }
+
+    .contact-list li::before{
+      position:absolute;
+      left:0;
+      top:1px;
+      font-weight:700;
+      color:var(--navy);
+    }
+
+    .contact-list li:nth-child(1)::before{content:"●"}
+    .contact-list li:nth-child(2)::before{content:"⌖"}
+    .contact-list li:nth-child(3)::before{content:"◫"}
+    .contact-list li:nth-child(4)::before{content:"☎"}
+    .contact-list li:nth-child(5)::before{content:"✉"}
+    .contact-list li:nth-child(6)::before{
+      content:"in";
+      font-size:.78rem;
+      border:1px solid var(--navy);
+      line-height:1;
+      padding:2px
+    }
+
+    .small-note{
+      margin-top:16px;
+      font-size:.84rem;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    footer{
+      background:linear-gradient(90deg, var(--navy-dark), var(--navy));
+      color:#fff;
+      margin-top:12px;
+    }
+
+    .footer-inner{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      font-size:.84rem;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:28px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a{text-decoration:none}
+
+    @media (max-width:900px){
+      nav{display:none}
+      .hero{grid-template-columns:1fr;min-height:auto}
+      .hero-photo{min-height:460px}
+      .hero-copy{padding:48px 28px 54px}
+      .split,.bottom-grid{grid-template-columns:1fr}
+      .container{width:min(100% - 28px, 760px)}
+      .timeline-row{grid-template-columns:1fr;gap:2px}
+      .timeline-date{margin-bottom:4px}
+    }
+
+    @media (max-width:560px){
+      .header-inner{min-height:60px}
+      .brand{font-size:1.22rem}
+      .hero-photo{min-height:390px}
+      .panel,.timeline{padding:26px 22px}
+      .actions{display:grid}
+      .button{width:100%}
+      .footer-inner{
+        padding:18px 0;
+        align-items:flex-start;
+        flex-direction:column
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <main>
-        <h1>Konrad Olesiewicz</h1>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">Konrad Olesiewicz</a>
+      <nav aria-label="Główna nawigacja">
+        <a href="#o-mnie">O mnie</a>
+        <a href="#doswiadczenie">Doświadczenie i kwalifikacje</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
 
-        <p>
-            Witaj na mojej stronie. To pierwsza wersja witryny
-            opublikowanej bezpłatnie przez GitHub Pages.
-        </p>
+  <section class="hero" id="top">
+    <div class="hero-photo">
+      <img src="konrad-olesiewicz.png" alt="Portret Konrada Olesiewicza">
+    </div>
 
-        <a href="mailto:konrad@olesiewicz.pl">Napisz do mnie</a>
-    </main>
+    <div class="hero-copy">
+      <h1>Konrad Olesiewicz</h1>
+      <p class="lead">Certyfikowany Praktyk<br>Internal Family Systems (IFS)</p>
+      <div class="rule"></div>
+
+      <p>Prowadzę prywatną praktykę wspierania rozwoju osób dorosłych, pracując w oparciu o model Internal Family Systems (IFS) oraz pozostając w stałej superwizji.</p>
+      <p>Obecnie rozwijam kompetencje kliniczne w ramach całościowego szkolenia psychoterapeutycznego oraz przygotowuję się do pracy w publicznym systemie ochrony zdrowia.</p>
+
+      <div class="actions">
+        <a class="button primary" href="#kontakt">Kontakt</a>
+        <a class="button" href="Konrad-Olesiewicz-CV.pdf" download>Pobierz CV</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="split">
+      <section class="section" id="o-mnie">
+        <h2>O mnie</h2>
+        <div class="rule"></div>
+
+        <p>Po kilkunastu latach pracy jako przedsiębiorca i lider organizacji świadomie zdecydowałem się związać swoją dalszą karierę z obszarem zdrowia psychicznego.</p>
+        <p>Od 2015 roku prowadzę prywatną praktykę wspierania rozwoju osób dorosłych, którą od 2021 roku rozwijam w oparciu o model Internal Family Systems (IFS).</p>
+        <p>Kompetencje kliniczne rozwijam poprzez całościowe szkolenie psychoterapeutyczne, regularną superwizję, proces własny oraz praktykę. Moim celem jest połączenie pracy w publicznym systemie ochrony zdrowia z praktyką prywatną oraz dalsza specjalizacja w psychoterapii dzieci i młodzieży.</p>
+      </section>
+
+      <section class="panel" id="z-kim-pracuje">
+        <h3>Z kim pracuję</h3>
+        <div class="rule"></div>
+        <p>Wspieram osoby dorosłe doświadczające między innymi:</p>
+        <ul class="check-list">
+          <li>ADHD</li>
+          <li>trudności w regulacji emocji</li>
+          <li>kryzysów życiowych</li>
+          <li>doświadczeń traumatycznych</li>
+          <li>trudności w relacjach interpersonalnych</li>
+          <li>przeciążenia i wypalenia zawodowego</li>
+        </ul>
+
+        <h3 style="margin-top:30px">Jak pracuję</h3>
+        <div class="rule"></div>
+        <p>Pracuję w oparciu o model Internal Family Systems (IFS). Towarzyszę osobom, które chcą lepiej rozumieć siebie, swoje emocje i wzorce funkcjonowania oraz rozwijać większą wewnętrzną spójność i sprawczość.</p>
+        <p>Każda współpraca opiera się na relacji, uważności oraz poszanowaniu indywidualnego tempa procesu.</p>
+      </section>
+    </div>
+
+    <section class="timeline" id="doswiadczenie">
+      <h3>Doświadczenie kliniczne i rozwój zawodowy</h3>
+      <div class="rule"></div>
+
+      <div class="timeline-row">
+        <div class="timeline-date">2025–obecnie</div>
+        <div>Całościowe szkolenie psychoterapeutyczne (Gestalt) — rozwój kompetencji klinicznych</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-date">2021–obecnie</div>
+        <div>Certyfikowany Praktyk Internal Family Systems (IFS)</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-date">2015–obecnie</div>
+        <div>Prowadzenie prywatnej praktyki wspierania rozwoju osobistego osób dorosłych</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-date">2004–2025</div>
+        <div>Doświadczenie w zarządzaniu organizacjami, przywództwie i pracy z ludźmi — kompetencje, które dziś wspierają moją praktykę</div>
+      </div>
+    </section>
+
+    <div class="bottom-grid">
+      <section class="panel" id="kwalifikacje">
+        <h3>Kwalifikacje i szkolenia</h3>
+        <div class="rule"></div>
+
+        <div class="qualification">
+          <strong>Certyfikowany Praktyk Internal Family Systems (IFS)</strong>
+          Międzynarodowa ścieżka certyfikacyjna obejmująca szkolenie, konsultacje kliniczne, ponad 200 godzin praktyki z klientami oraz niezależną ocenę kompetencji.
+        </div>
+
+        <div class="qualification">
+          <strong>Całościowe szkolenie psychoterapeutyczne Gestalt</strong>
+          Obecnie rozwijam kompetencje kliniczne w ramach czteroletniego szkolenia zgodnego ze standardami European Association for Gestalt Therapy (EAGT), obejmującego kształcenie teoretyczne i praktyczne, proces własny, superwizję oraz praktykę kliniczną.
+        </div>
+
+        <strong>Wybrane szkolenia</strong>
+        <ul class="plain-list">
+          <li>Emotionally Focused Couples Therapy (ICEEFT)</li>
+          <li>Analiza Transakcyjna (EATA)</li>
+          <li>Psychoterapia traumy</li>
+          <li>Teoria przywiązania</li>
+          <li>Neurobiologia interpersonalna</li>
+        </ul>
+
+        <a class="button" href="Konrad-Olesiewicz-CV.pdf" download>Pełne CV</a>
+      </section>
+
+      <section class="panel" id="kontakt">
+        <h3>Kontakt</h3>
+        <div class="rule"></div>
+
+        <ul class="contact-list">
+          <li>Konrad Olesiewicz</li>
+          <li>Warszawa</li>
+          <li>Spotkania online</li>
+          <li><a href="tel:+48000000000">+48 000 000 000</a></li>
+          <li><a href="mailto:kontakt@konradolesiewicz.pl">kontakt@konradolesiewicz.pl</a></li>
+          <li><a href="#" rel="noopener">LinkedIn</a></li>
+        </ul>
+
+        <div class="actions">
+          <a class="button primary" href="#" rel="noopener">Umów konsultację</a>
+        </div>
+
+        <p class="small-note">Obecnie nie prowadzę zapisów do stałej współpracy. Kalendarz służy do umawiania spotkań z osobami, z którymi już współpracuję, oraz wcześniej uzgodnionych konsultacji.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="#">Polityka prywatności</a>
+        <a href="#">RODO</a>
+        <a href="#">LinkedIn</a>
+      </div>
+      <div>© 2026 Konrad Olesiewicz. Wszelkie prawa zastrzeżone.</div>
+    </div>
+  </footer>
 </body>
 </html>
-
