@@ -857,13 +857,95 @@
     grid-template-columns:1fr !important;
   }
 }
+
+
+/* ===== Final typography tuning ===== */
+.hero-copy{padding:60px 60px 60px 68px;}
+h1{font-size:clamp(3.3rem,4.6vw,4.6rem);line-height:.96;}
+.lead{font-size:clamp(2rem,2.8vw,2.6rem);line-height:1.22;margin-top:20px;margin-bottom:10px;}
+.hero-copy h4.hero-label{margin:42px 0 12px;text-align:center;color:var(--navy);font-size:.95rem;text-transform:uppercase;letter-spacing:.18em;font-weight:700;}
+.quote{max-width:760px;font-size:1.42rem;line-height:1.6;margin:10px auto 42px;}
+.hero-copy>p:not(.lead):not(.quote):not(.notice){max-width:760px;font-size:1.28rem;line-height:1.85;}
+.notice{max-width:760px;font-size:1.22rem;line-height:1.8;margin-top:12px;}
+.actions{margin-top:36px;}
+
+
+/* ===== Korekta końcowa: kompaktowe hero i zachowana harmonia typografii ===== */
+.hero-copy{
+  padding:52px 54px 52px 64px;
+}
+
+h1{
+  font-size:clamp(2.9rem,4vw,4.05rem);
+  line-height:1;
+}
+
+.lead{
+  font-size:clamp(1.55rem,2.2vw,2.15rem);
+  line-height:1.28;
+  margin:18px 0 0;
+}
+
+.quote{
+  max-width:720px;
+  margin:27px auto 30px;
+  font-size:1.22rem;
+  line-height:1.65;
+}
+
+.hero-copy > p:not(.lead):not(.quote):not(.notice){
+  max-width:720px;
+  margin:0 0 16px;
+  font-size:1.16rem;
+  line-height:1.76;
+}
+
+.notice{
+  max-width:720px;
+  margin:8px 0 0;
+  font-size:1.10rem;
+  line-height:1.72;
+}
+
+.actions{
+  margin-top:28px;
+}
+
+@media (max-width:1100px){
+  .hero-copy{
+    padding:46px 34px 46px 42px;
+  }
+}
+
+@media (max-width:900px){
+  .hero-copy{
+    padding:44px 26px 50px;
+  }
+
+  h1{
+    font-size:clamp(2.75rem,8vw,3.8rem);
+  }
+
+  .lead{
+    font-size:clamp(1.45rem,4.5vw,1.95rem);
+  }
+
+  .quote{
+    font-size:1.16rem;
+  }
+
+  .hero-copy > p:not(.lead):not(.quote):not(.notice),
+  .notice{
+    font-size:1.06rem;
+  }
+}
 </style>
 </head>
 <body>
 <div class="page">
 <header class="site-header">
 <div class="container header-inner">
-<nav aria-label="Główna nawigacja">
+<nav aria-label="Główna nawigacja"><a href="#obietnica">Moja obietnica</a>
 <a href="#o-mnie">O mnie</a>
 <a href="#doswiadczenie">Doświadczenie i kwalifikacje</a>
 <a href="#kontakt">Kontakt</a>
@@ -897,7 +979,7 @@
 </div>
 </section>
 <main class="container">
-<section class="promise">
+<section class="promise" id="obietnica">
 <h2>Moja obietnica</h2>
 <blockquote>
         „Nie mogę obiecać, dokąd zaprowadzi Cię Twoja droga.
@@ -1050,12 +1132,13 @@
         Istnieje możliwość umówienia konsultacji dotyczącej
         wcześniej zakończonych procesów.
       </p>
+<h4>Forma spotkań</h4>
+<p>
+        Aktualnie spotkania są prowadzone w formie online.
+      </p>
 </div>
 </section></div>
-
-
 </main></div>
-
 <footer>
 <div class="container footer-inner">
 <div class="footer-links">
@@ -1066,6 +1149,5 @@
 <div>© 2026 Konrad Olesiewicz</div>
 </div>
 </footer>
-
 </body>
 </html>
