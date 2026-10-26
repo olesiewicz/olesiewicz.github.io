@@ -1020,6 +1020,7 @@ h1{
 <nav aria-label="Główna nawigacja"><a href="#obietnica">Moja obietnica</a>
 <a href="#o-mnie">O mnie</a>
 <a href="#doswiadczenie">Doświadczenie i kwalifikacje</a>
+<a href="#teksty">Teksty i materiały</a>
 <a href="#kontakt">Kontakt</a>
 </nav>
 </div>
@@ -1211,6 +1212,279 @@ h1{
       </p>
 </div>
 </section></div>
+
+    
+<style>
+  /* Teksty i materiały — styl zgodny z obecną stroną */
+
+  #teksty {
+    margin: 0 0 34px;
+    padding: 29px 34px;
+    border: 1px solid var(--line);
+    scroll-margin-top: 90px;
+  }
+
+  #teksty h3 {
+    font-size: clamp(1.45rem, 2vw, 1.95rem);
+    font-weight: 800;
+  }
+
+  #teksty .rule {
+    margin: 17px 0 23px;
+  }
+
+  .materialy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .material {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 25px 28px;
+    border: 1px solid var(--line);
+    background: linear-gradient(135deg, #fbfdff, var(--panel));
+    scroll-margin-top: 100px;
+  }
+
+  .material-rodzaj {
+    color: var(--muted);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+
+  .material h4 {
+    margin: 10px 0 4px;
+    color: var(--navy-dark);
+    font-size: 1.2rem;
+    line-height: 1.35;
+    font-weight: 800;
+    letter-spacing: -.02em;
+  }
+
+  .material-data {
+    color: var(--muted);
+    font-size: .86rem;
+  }
+
+  .material-opis {
+    margin: 13px 0 13px;
+    font-size: .98rem;
+    line-height: 1.55;
+  }
+
+  .material-link {
+    color: var(--navy);
+    font-size: .97rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .material-link:hover,
+  .material-adres:hover {
+    text-decoration: underline;
+  }
+
+  .material-udostepnij {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 12px;
+    font-size: .92rem;
+  }
+
+  .material-adres {
+    color: var(--navy-dark);
+    font-weight: 600;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .material-kopiuj {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: white;
+    color: var(--navy);
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+
+  .material-kopiuj:hover {
+    background: #eaf0f6;
+  }
+
+  @media (max-width: 900px) {
+    .materialy-grid {
+      grid-template-columns: 1fr;
+    }
+
+    /* Widoczny dostęp do nowego działu na telefonie */
+    nav {
+      display: flex;
+    }
+
+    nav a {
+      display: none;
+    }
+
+    nav a[href="#teksty"] {
+      display: inline;
+    }
+  }
+
+  @media (max-width: 560px) {
+    #teksty {
+      padding: 24px 20px;
+    }
+
+    .material {
+      padding: 21px 20px;
+    }
+
+    .material h4 {
+      font-size: 1.12rem;
+    }
+  }
+</style>
+
+<section id="teksty" aria-labelledby="teksty-tytul">
+
+  <h3 id="teksty-tytul">Teksty i materiały</h3>
+  <div class="rule"></div>
+
+  <div class="materialy-grid">
+
+    <!-- MATERIAŁ 1: CHECKLISTA GESTALT -->
+
+    <article class="material" id="checklista-gestalt">
+
+      <div class="material-rodzaj">
+        Arkusz / materiał pomocniczy
+      </div>
+
+      <h4>
+        Checklista Gestalt — narzędzie dla studentów
+        psychoterapii Gestalt
+      </h4>
+
+      <div class="material-data">
+        Ostatnia redakcja: 26.10.2026
+      </div>
+
+      <p class="material-opis">
+        Zestawienie wymagań certyfikacyjnych EAGT, PTPG
+        i PRP oraz arkusz do śledzenia ich realizacji.
+      </p>
+
+      <a class="material-link"
+         href="https://docs.google.com/spreadsheets/d/1bOWKJIYbgRFuWjNpx5tcPMknh485w0wBtk25yDbZvVs/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Otwórz arkusz Google ↗
+      </a>
+
+      <div class="material-udostepnij">
+        <span>Udostępnij:</span>
+
+        <a class="material-adres"
+           href="#checklista-gestalt">
+          konrad.olesiewicz.pl/#checklista-gestalt
+        </a>
+
+        <button class="material-kopiuj"
+                type="button"
+                data-link="https://konrad.olesiewicz.pl/#checklista-gestalt"
+                aria-label="Kopiuj link do Checklisty Gestalt"
+                title="Kopiuj link">
+          ⧉
+        </button>
+      </div>
+
+    </article>
+
+    <!-- MATERIAŁ 2: ARTYKUŁ CENTRALNY PKWP -->
+
+    <article class="material" id="wolnosc-a-pokoj">
+
+      <div class="material-rodzaj">
+        Esej / PDF
+      </div>
+
+      <h4>
+        Dlaczego więcej wolności nie zawsze daje
+        pokój wewnętrzny?
+      </h4>
+
+      <div class="material-data">
+        Ostatnia redakcja: 09.10.2026
+      </div>
+
+      <p class="material-opis">
+        Artykuł centralny cyklu
+        „Paradoksalna koncepcja wolności
+        w psychoterapii”.
+      </p>
+
+      <a class="material-link"
+         href="/Dlaczego-wiecej-wolnosci-nie-zawsze-daje-pokoj-wewnetrzny.pdf"
+         target="_blank"
+         rel="noopener noreferrer">
+        Czytaj esej (PDF) ↗
+      </a>
+
+      <div class="material-udostepnij">
+        <span>Udostępnij:</span>
+
+        <a class="material-adres"
+           href="#wolnosc-a-pokoj">
+          konrad.olesiewicz.pl/#wolnosc-a-pokoj
+        </a>
+
+        <button class="material-kopiuj"
+                type="button"
+                data-link="https://konrad.olesiewicz.pl/#wolnosc-a-pokoj"
+                aria-label="Kopiuj link do eseju"
+                title="Kopiuj link">
+          ⧉
+        </button>
+      </div>
+
+    </article>
+
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll(".material-kopiuj")
+    .forEach(function (button) {
+
+      button.addEventListener("click", async function () {
+        const link = button.dataset.link;
+
+        try {
+          await navigator.clipboard.writeText(link);
+          button.textContent = "✓";
+
+          setTimeout(function () {
+            button.textContent = "⧉";
+          }, 1800);
+
+        } catch (error) {
+          window.prompt("Skopiuj adres:", link);
+        }
+      });
+
+    });
+</script>
+
+    
 </main></div>
 <footer>
 <div class="container footer-inner">
