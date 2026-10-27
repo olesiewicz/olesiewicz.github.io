@@ -1325,17 +1325,9 @@ h1{
       grid-template-columns: 1fr;
     }
 
-    /* Widoczny dostęp do nowego działu na telefonie */
-    nav {
-      display: flex;
-    }
-
-    nav a {
+    /* Na urządzeniach mobilnych ukryj menu wraz z paskiem nagłówka. */
+    .site-header {
       display: none;
-    }
-
-    nav a[href="#teksty"] {
-      display: inline;
     }
   }
 
