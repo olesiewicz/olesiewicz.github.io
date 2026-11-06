@@ -1268,6 +1268,30 @@ h1{
     scroll-margin-top: 100px;
   }
 
+  /* Wspólne poziomy tytułu, daty, opisu i udostępniania w każdym rzędzie kart. */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 901px) {
+      .material {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 4;
+        row-gap: 0;
+      }
+
+      .material > h4,
+      .material > .material-data,
+      .material > .material-opis {
+        align-self: start;
+      }
+
+      .material > .material-udostepnij {
+        align-self: start;
+        align-items: flex-start;
+        margin-top: 0;
+      }
+    }
+  }
+
   .material-rodzaj {
     color: var(--muted);
     font-size: .78rem;
