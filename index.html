@@ -1026,7 +1026,9 @@ h1{
 <nav aria-label="Główna nawigacja"><a href="#obietnica">Moja obietnica</a>
 <a href="#o-mnie">O mnie</a>
 <a href="#doswiadczenie">Doświadczenie i kwalifikacje</a>
-<a href="#teksty">Eseje i materiały</a>
+<a href="#refleksje">Refleksje</a>
+<a href="#eseje">Eseje</a>
+<a href="#materialy">Materiały</a>
 <a href="#kontakt">Kontakt</a>
 </nav>
 </div>
@@ -1221,22 +1223,33 @@ h1{
 
     
 <style>
-  /* Eseje i materiały — styl zgodny z obecną stroną */
+  /* Refleksje, eseje i materiały — styl zgodny z obecną stroną */
 
   #teksty {
+    scroll-margin-top: 90px;
+  }
+
+  .publikacje-sekcja {
     margin: 0 0 34px;
     padding: 29px 34px;
     border: 1px solid var(--line);
     scroll-margin-top: 90px;
   }
 
-  #teksty h3 {
+  .publikacje-sekcja h3 {
     font-size: clamp(1.45rem, 2vw, 1.95rem);
     font-weight: 800;
   }
 
-  #teksty .rule {
+  .publikacje-sekcja .rule {
     margin: 17px 0 23px;
+  }
+
+  .publikacje-wprowadzenie {
+    margin: 0 0 23px;
+    color: var(--muted);
+    font-size: .98rem;
+    line-height: 1.65;
   }
 
   .materialy-grid {
@@ -1338,7 +1351,7 @@ h1{
   }
 
   @media (max-width: 560px) {
-    #teksty {
+    .publikacje-sekcja {
       padding: 24px 20px;
     }
 
@@ -1352,16 +1365,19 @@ h1{
   }
 </style>
 
-<section id="teksty" aria-labelledby="teksty-tytul">
-
-  <h3 id="teksty-tytul">Eseje i materiały</h3>
+<div id="teksty">
+<section class="publikacje-sekcja" id="refleksje" aria-labelledby="refleksje-tytul">
+  <h3 id="refleksje-tytul">Refleksje</h3>
   <div class="rule"></div>
+  <p class="publikacje-wprowadzenie">Krótkie przemyślenia wyrastające z terapii własnej, spotkań, warsztatów i namysłu nad ludzkim doświadczeniem. Piszę w pierwszej osobie, by zachować bliskość przeżycia i jego emocjonalny wymiar. Teksty mogą łączyć różne sytuacje i perspektywy, nie zawsze autobiograficzne. Punktem wyjścia jest zawsze uczucie.</p>
+</section>
 
+<section class="publikacje-sekcja" id="eseje" aria-labelledby="eseje-tytul">
+  <h3 id="eseje-tytul">Eseje</h3>
+  <div class="rule"></div>
+  <p class="publikacje-wprowadzenie">Dłuższe rozważania inspirowane psychoterapią, filozofią i etyką. Przyglądam się w nich myślom i koncepcjom oraz ich znaczeniu dla codziennego życia i pracy z ludźmi.</p>
   <div class="materialy-grid">
-
-    <!-- ESEJ: MAŁY KOMPAS DOBREGO ŻYCIA -->
-
-    <article class="material" id="maly-kompas">
+<article class="material" id="maly-kompas">
       <h4>
         <a href="/Maly-kompas-dobrego-zycia.pdf">Mały kompas dobrego życia</a>
       </h4>
@@ -1384,35 +1400,7 @@ h1{
       </div>
     </article>
 
-    <!-- MATERIAŁ: MAŁY KOMPAS DOBREGO ŻYCIA W PIGUŁCE -->
-
-    <article class="material" id="maly-kompas-w-pigulce">
-      <h4>
-        <a href="/Maly-kompas-dobrego-zycia-w-pigulce.pdf">Mały kompas dobrego życia w pigułce [MATERIAŁ]</a>
-      </h4>
-
-      <div class="material-data">Ostatnia redakcja: 04.11.2026</div>
-
-      <p class="material-opis">
-        Jednostronicowa ściąga do rozeznawania codziennych wyborów: trzy założenia, trzy rodzaje pragnień, cztery kroki i cztery możliwe odpowiedzi. Materiał towarzyszący esejowi „<a href="#maly-kompas">Mały kompas dobrego życia</a>”, przygotowany do samodzielnego wykorzystania i wydruku na jednej stronie A4.
-      </p>
-
-      <div class="material-udostepnij">
-        <span>Udostępnij:</span>
-        <a class="material-adres" href="#maly-kompas-w-pigulce">konrad.olesiewicz.pl/#maly-kompas-w-pigulce</a>
-        <button class="material-kopiuj"
-                type="button"
-                data-link="https://konrad.olesiewicz.pl/#maly-kompas-w-pigulce"
-                aria-label="Kopiuj link do materiału Mały kompas dobrego życia w pigułce"
-                title="Kopiuj link"> ⧉
-        </button>
-      </div>
-    </article>
-
-
-    <!-- MATERIAŁ 1: SPOTKANIE JA–TY -->
-
-    <article class="material" id="spotkanie-ja-ty">
+<article class="material" id="spotkanie-ja-ty">
 
       <h4>
         <a href="/Spotkanie-Ja-Ty-jako-doswiadczenie-obiegu-i-sensu-zycia.pdf">
@@ -1445,44 +1433,7 @@ h1{
 
     </article>
 
-    <!-- MATERIAŁ 2: CHECKLISTA GESTALT -->
-
-    <article class="material" id="checklista-gestalt">
-
-      <h4>
-        <a href="https://docs.google.com/spreadsheets/d/1bOWKJIYbgRFuWjNpx5tcPMknh485w0wBtk25yDbZvVs/"> Checklista Gestalt — narzędzie dla studentów
-        psychoterapii Gestalt [MATERIAŁ] </a>
-      </h4>
-
-      <div class="material-data">
-        Ostatnia redakcja: 28.10.2026
-      </div>
-
-      <p class="material-opis">
-        Zestawienie wymagań certyfikacyjnych EAGT, PTPG i PRP oraz arkusz do śledzenia ich realizacji. Wymagania EAGT zostały potwierdzone przez SPG, a wymagania PRP — przez PRP. Pytania można zadawać w komentarzach lub mailowo. Aby śledzić własne postępy, utwórz kopię arkusza na swoim Dysku Google.
-      </p>
-
-      <div class="material-udostepnij">
-        <span>Udostępnij:</span>
-
-        <a class="material-adres"
-           href="#checklista-gestalt">
-          konrad.olesiewicz.pl/#checklista-gestalt
-        </a>
-
-        <button class="material-kopiuj"
-                type="button"
-                data-link="https://konrad.olesiewicz.pl/#checklista-gestalt"
-                aria-label="Kopiuj link do Checklisty Gestalt"
-                title="Kopiuj link"> ⧉
-        </button>
-      </div>
-
-    </article>
-
-    <!-- MATERIAŁ 3: WOLNOŚĆ A POKÓJ -->
-
-    <article class="material" id="wolnosc-a-pokoj">
+<article class="material" id="wolnosc-a-pokoj">
       <h4>
         <a href="/Dlaczego-wiecej-wolnosci-nie-zawsze-daje-pokoj-wewnetrzny.pdf">
             Dlaczego więcej wolności nie zawsze daje
@@ -1514,9 +1465,72 @@ h1{
       </div>
 
     </article>
-
   </div>
 </section>
+
+<section class="publikacje-sekcja" id="materialy" aria-labelledby="materialy-tytul">
+  <h3 id="materialy-tytul">Materiały</h3>
+  <div class="rule"></div>
+  <p class="publikacje-wprowadzenie">Narzędzia, zestawienia i opracowania do samodzielnego wykorzystania — w formie arkuszy lub plików do pobrania i wydruku.</p>
+  <div class="materialy-grid">
+<article class="material" id="maly-kompas-w-pigulce">
+      <h4>
+        <a href="/Maly-kompas-dobrego-zycia-w-pigulce.pdf">Mały kompas dobrego życia w pigułce [MATERIAŁ]</a>
+      </h4>
+
+      <div class="material-data">Ostatnia redakcja: 04.11.2026</div>
+
+      <p class="material-opis">
+        Jednostronicowa ściąga do rozeznawania codziennych wyborów: trzy założenia, trzy rodzaje pragnień, cztery kroki i cztery możliwe odpowiedzi. Materiał towarzyszący esejowi „<a href="#maly-kompas">Mały kompas dobrego życia</a>”, przygotowany do samodzielnego wykorzystania i wydruku na jednej stronie A4.
+      </p>
+
+      <div class="material-udostepnij">
+        <span>Udostępnij:</span>
+        <a class="material-adres" href="#maly-kompas-w-pigulce">konrad.olesiewicz.pl/#maly-kompas-w-pigulce</a>
+        <button class="material-kopiuj"
+                type="button"
+                data-link="https://konrad.olesiewicz.pl/#maly-kompas-w-pigulce"
+                aria-label="Kopiuj link do materiału Mały kompas dobrego życia w pigułce"
+                title="Kopiuj link"> ⧉
+        </button>
+      </div>
+    </article>
+
+<article class="material" id="checklista-gestalt">
+
+      <h4>
+        <a href="https://docs.google.com/spreadsheets/d/1bOWKJIYbgRFuWjNpx5tcPMknh485w0wBtk25yDbZvVs/"> Checklista Gestalt — narzędzie dla studentów
+        psychoterapii Gestalt [MATERIAŁ] </a>
+      </h4>
+
+      <div class="material-data">
+        Ostatnia redakcja: 28.10.2026
+      </div>
+
+      <p class="material-opis">
+        Zestawienie wymagań certyfikacyjnych EAGT, PTPG i PRP oraz arkusz do śledzenia ich realizacji. Wymagania EAGT zostały potwierdzone przez SPG, a wymagania PRP — przez PRP. Pytania można zadawać w komentarzach lub mailowo. Aby śledzić własne postępy, utwórz kopię arkusza na swoim Dysku Google.
+      </p>
+
+      <div class="material-udostepnij">
+        <span>Udostępnij:</span>
+
+        <a class="material-adres"
+           href="#checklista-gestalt">
+          konrad.olesiewicz.pl/#checklista-gestalt
+        </a>
+
+        <button class="material-kopiuj"
+                type="button"
+                data-link="https://konrad.olesiewicz.pl/#checklista-gestalt"
+                aria-label="Kopiuj link do Checklisty Gestalt"
+                title="Kopiuj link"> ⧉
+        </button>
+      </div>
+
+    </article>
+  </div>
+</section>
+</div>
 
 <script>
   document.querySelectorAll(".material-kopiuj")
