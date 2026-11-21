@@ -208,7 +208,7 @@
     .hero-inner{
       display:grid;
       grid-template-columns:minmax(300px, 400px) minmax(0, 1fr);
-      min-height:500;
+      min-height:500px;
     }
 
     .hero-photo{
@@ -1393,6 +1393,268 @@ h1{
   }
 </style>
 
+<style id="responsive-layout">
+  /* Wspólne zabezpieczenia dla wąskich ekranów i powiększonego tekstu. */
+  .hero-copy,
+  .split > *,
+  .timeline-row > *,
+  .contact-item > div,
+  .material > * {
+    min-width: 0;
+  }
+
+  h1, h2, h3, h4,
+  .training-heading,
+  .contact-item a,
+  .contact-item span {
+    overflow-wrap: anywhere;
+  }
+
+  p {
+    hyphens: auto;
+  }
+
+  .button {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .training-button {
+    min-width: min(260px, 100%);
+  }
+
+  .header-inner {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 4px 24px;
+    line-height: 1.4;
+  }
+
+  nav a {
+    padding: 10px 0;
+  }
+
+  main [id] {
+    scroll-margin-top: 110px;
+  }
+
+  .material-data,
+  .footer-inner {
+    font-size: .875rem;
+  }
+
+  .material-kopiuj {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--navy);
+    outline-offset: 4px;
+  }
+
+  @media (min-width: 901px) and (max-width: 1100px) {
+    .hero-inner {
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    }
+
+    .hero-photo {
+      width: 100%;
+    }
+
+    .hero-copy {
+      padding: 40px 30px;
+    }
+
+    nav {
+      column-gap: 20px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    /* Zgodnie z przyjętym układem menu na telefonach pozostaje ukryte. */
+    .site-header {
+      display: none;
+    }
+
+    .hero-photo {
+      height: clamp(320px, 58vw, 430px);
+      min-height: 0;
+    }
+
+    main [id] {
+      scroll-margin-top: 20px;
+    }
+
+    .publikacje-wprowadzenie,
+    .material-opis {
+      font-size: 1rem;
+    }
+
+    .material-udostepnij {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 44px;
+      align-items: center;
+      gap: 6px 12px;
+      font-size: 1rem;
+      padding-top: 10px;
+    }
+
+    .material-udostepnij > span {
+      grid-column: 1 / -1;
+    }
+
+    .material-adres {
+      min-width: 0;
+    }
+
+    .material-kopiuj {
+      width: 44px;
+      height: 44px;
+    }
+
+    .footer-inner {
+      min-height: 70px;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .container {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+
+    .hero-photo {
+      height: clamp(300px, 85vw, 410px);
+    }
+
+    .hero-copy {
+      padding: 32px 20px 40px;
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 9vw, 2.75rem);
+      line-height: 1.06;
+    }
+
+    .lead {
+      font-size: clamp(1.35rem, 5vw, 1.6rem);
+      line-height: 1.35;
+    }
+
+    .quote {
+      margin: 24px auto;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+    }
+
+    .hero-copy > p:not(.lead):not(.quote):not(.notice),
+    .notice {
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .actions {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      width: 100%;
+      margin-top: 24px;
+    }
+
+    .actions .button {
+      min-width: 0;
+    }
+
+    main.container {
+      padding-top: 24px;
+    }
+
+    .promise {
+      padding: 32px 12px;
+    }
+
+    .promise blockquote {
+      font-size: 1.2rem;
+    }
+
+    .split,
+    .bottom-grid {
+      gap: 24px !important;
+      margin-bottom: 24px;
+    }
+
+    .panel,
+    .timeline,
+    .publikacje-sekcja {
+      padding: 24px 18px;
+      margin-bottom: 24px;
+    }
+
+    .bottom-grid > .panel {
+      margin-bottom: 0;
+    }
+
+    .materialy-grid {
+      gap: 18px;
+    }
+
+    .material {
+      padding: 20px 16px;
+    }
+
+    .material h4 {
+      margin-top: 0;
+      font-size: 1.125rem;
+    }
+
+    .material-adres {
+      font-size: .9375rem;
+    }
+
+    .check-list li {
+      padding-left: 30px;
+    }
+
+    .contact-item {
+      gap: 12px;
+    }
+
+    .footer-inner {
+      gap: 12px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    .button,
+    nav a {
+      transition: none;
+    }
+  }
+</style>
+
 <div id="teksty">
 <section class="publikacje-sekcja" id="refleksje" aria-labelledby="refleksje-tytul">
   <h3 id="refleksje-tytul">Refleksje</h3>
@@ -1643,3 +1905,4 @@ h1{
 </footer>
 </body>
 </html>
+
