@@ -1015,7 +1015,8 @@ h1{
 <div class="page">
 <header class="site-header">
 <div class="container header-inner">
-<nav aria-label="Główna nawigacja"><a href="#obietnica">Moja obietnica</a>
+<button class="menu-toggle" type="button" aria-controls="menu-glowne" aria-expanded="false" hidden>Menu</button>
+<nav id="menu-glowne" aria-label="Główna nawigacja"><a href="#obietnica">Moja obietnica</a>
 <a href="#o-mnie">O mnie</a>
 <a href="#doswiadczenie">Doświadczenie i kwalifikacje</a>
 <a href="#refleksje">Refleksje</a>
@@ -1025,6 +1026,51 @@ h1{
 </nav>
 </div>
 </header>
+<script>
+  (function () {
+    const header = document.querySelector('.site-header');
+    const button = header.querySelector('.menu-toggle');
+    const menu = header.querySelector('#menu-glowne');
+    const mobile = window.matchMedia('(max-width: 900px)');
+
+    function setMenu(open) {
+      menu.toggleAttribute('data-open', open);
+      button.setAttribute('aria-expanded', String(open));
+    }
+
+    header.classList.add('menu-enhanced');
+    button.hidden = false;
+    button.addEventListener('click', function () {
+      setMenu(!menu.hasAttribute('data-open'));
+    });
+
+    header.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && menu.hasAttribute('data-open')) {
+        setMenu(false);
+        button.focus();
+      }
+    });
+
+    menu.addEventListener('click', function (event) {
+      const link = event.target.closest('a');
+      if (!link || !mobile.matches || !menu.hasAttribute('data-open')) return;
+      setMenu(false);
+      const section = document.getElementById(link.hash.slice(1));
+      if (section) {
+        section.setAttribute('tabindex', '-1');
+        section.focus({ preventScroll: true });
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      if (mobile.matches && !header.contains(event.target)) setMenu(false);
+    });
+
+    mobile.addEventListener('change', function () {
+      setMenu(false);
+    });
+  }());
+</script>
 <section class="hero" id="top">
 <div class="hero-inner">
 <div class="hero-photo">
@@ -1417,6 +1463,27 @@ h1{
     padding-bottom: 8px;
   }
 
+  .menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: .4rem .85rem;
+    color: var(--navy-dark);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: white;
+    font-family: inherit;
+    font-size: .95rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .menu-toggle:hover,
+  .menu-toggle[aria-expanded="true"] {
+    background: var(--panel);
+  }
+
   nav {
     flex-wrap: wrap;
     gap: 4px 24px;
@@ -1470,7 +1537,7 @@ h1{
   }
 
   @media (max-width: 900px) {
-    /* Widoczne, zawijane menu bez zasłaniania treści podczas przewijania. */
+    /* Jeden przycisk Menu; bez JavaScriptu wszystkie linki pozostają dostępne. */
     .site-header {
       display: block;
       position: static;
@@ -1480,7 +1547,17 @@ h1{
       min-height: 0;
       padding-top: 10px;
       padding-bottom: 10px;
-      justify-content: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .menu-enhanced .menu-toggle:not([hidden]) {
+      display: inline-flex;
+    }
+
+    .menu-enhanced nav:not([data-open]) {
+      display: none;
     }
 
     nav {
@@ -1497,6 +1574,12 @@ h1{
       align-items: center;
       min-height: 44px;
       padding: 8px 0;
+    }
+
+    .menu-enhanced nav[data-open] {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
     }
 
     .hero-photo {
@@ -1550,6 +1633,12 @@ h1{
   }
 
   @media (max-width: 560px) {
+    .menu-enhanced nav[data-open] {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2px 18px;
+    }
+
     .container {
       padding-right: 16px;
       padding-left: 16px;
