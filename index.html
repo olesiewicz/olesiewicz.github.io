@@ -650,10 +650,6 @@
         box-shadow:none;
       }
 
-      nav{
-        display:none;
-      }
-
       .hero-inner{
         grid-template-columns:1fr;
         min-height:auto;
@@ -826,10 +822,6 @@
     }
 
     @media (max-width:900px){
-      nav{
-        display:none;
-      }
-
       .hero-inner{
         grid-template-columns:1fr;
       }
@@ -1372,10 +1364,6 @@ h1{
       grid-template-columns: 1fr;
     }
 
-    /* Na urządzeniach mobilnych ukryj menu wraz z paskiem nagłówka. */
-    .site-header {
-      display: none;
-    }
   }
 
   @media (max-width: 560px) {
@@ -1482,9 +1470,33 @@ h1{
   }
 
   @media (max-width: 900px) {
-    /* Zgodnie z przyjętym układem menu na telefonach pozostaje ukryte. */
+    /* Widoczne, zawijane menu bez zasłaniania treści podczas przewijania. */
     .site-header {
-      display: none;
+      display: block;
+      position: static;
+    }
+
+    .header-inner {
+      min-height: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      justify-content: center;
+    }
+
+    nav {
+      display: flex;
+      width: 100%;
+      margin-left: 0;
+      justify-content: center;
+      gap: 2px 18px;
+      font-size: .875rem;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 0;
     }
 
     .hero-photo {
